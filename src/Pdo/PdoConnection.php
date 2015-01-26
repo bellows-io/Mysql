@@ -13,7 +13,7 @@ class PdoConnection implements ConnectionInterface {
 
 	public function __construct(PDO $handle, PdoResponseFactory $responseFactory) {
 		$this->handle = $handle;
-		$this->responseFactory = $responseFactory
+		$this->responseFactory = $responseFactory;
 	}
 
 	public function prepare($sql, array $data = array()) {
