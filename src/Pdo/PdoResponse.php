@@ -2,13 +2,13 @@
 
 namespace Mysql\Pdo;
 
+use \Mysql\ResponseInterface;
 use \PDOStatement;
 use \PDO;
 
 class PdoResponse implements ResponseInterface {
 
 	protected $statement;
-	protected $executed;
 
 	public function __construct(PDOStatement $statement, $executed = false) {
 		$this->statement = $statement;
@@ -123,12 +123,8 @@ class PdoResponse implements ResponseInterface {
 	}
 
 	protected function lazyExecute() {
-		if (! $this->executed) {
-			$this->statement->setFetchMode(PDO::FETCH_BOTH);
-			$this->statement->execute();
-			$this->executed = true;
-		}
-
+		$this->statement->setFetchMode(PDO::FETCH_BOTH);
+		$this->statement->execute();
 	}
 
 }
