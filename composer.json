@@ -1,0 +1,9 @@
+{
+	"name"        : "bellows/mysql",
+	"description" : "Simplified database library",
+	"license"     : "MIT",
+	"repositories": [],
+	"autoload": {
+		"psr-4": {"Mysql\\":"src/"}
+	}
+}
